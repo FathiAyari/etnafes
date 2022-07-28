@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1054963602363",
+    "project_id": "etnafes-4de36",
+    "storage_bucket": "etnafes-4de36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054963602363:android:cc988c6cf66fa5a3f16a9e",
+        "android_client_info": {
+          "package_name": "com.example.etnafes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054963602363-veraruhvsmdpal0riuql4khe6et96due.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIjx410w9hNezHu_fj6AFr84IkxwzfcFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054963602363-veraruhvsmdpal0riuql4khe6et96due.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
