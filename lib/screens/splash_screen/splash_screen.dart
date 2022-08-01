@@ -1,9 +1,10 @@
+import 'package:etnafes/screens/splash_screen/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../util/constants/constants.dart';
+import '../../util/constants/constraints.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _SplasScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Constants.bgColor,
+        backgroundColor: ConstColors.bgColor,
         body: Container(
           width: double.infinity,
           child: Column(
