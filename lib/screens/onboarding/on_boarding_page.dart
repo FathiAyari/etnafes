@@ -59,7 +59,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   return contentList[index];
                 }),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal:  Constants.screenWidth * 0.1,),
+              padding:  EdgeInsets.symmetric(horizontal:  Constants.screenWidth * 0.1),
 
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
