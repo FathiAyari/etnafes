@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: ^4.2.2
   flutter:
     sdk: flutter
 
@@ -79,17 +80,27 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: fonts/Nunito-VariableFont_wght.ttf
+    - family: NunitoBold
+      fonts:
+        - asset: fonts/Nunito-Bold.ttf
+    - family: NunitoMedium
+      fonts:
+        - asset: fonts/Nunito-Medium.ttf
+    - family: Assistant
+      fonts:
+        - asset: fonts/Assistant-VariableFont_wght.ttf
+    - family: AssistantLight
+      fonts:
+        - asset: fonts/Assistant-Light.ttf
+    - family: SourceSansPro
+      fonts:
+        - asset: fonts/SourceSansPro-Italic.ttf
+    - family: SourceSansProExtra
+      fonts:
+        - asset: fonts/SourceSansPro-ExtraLight.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

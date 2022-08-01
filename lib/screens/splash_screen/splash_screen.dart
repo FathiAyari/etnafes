@@ -1,10 +1,14 @@
-import 'package:etnafes/screens/splash_screen/colors.dart';
+import 'dart:async';
+
+import 'package:etnafes/util/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:get/get.dart';
 import '../../util/constants/constraints.dart';
+import '../onboarding/on_boarding_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -13,13 +17,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplasScreenState extends State<SplashScreen> {
   var seen = GetStorage().read("seen");
-/*  @override
+@override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    Timer(Duration(seconds: 4), () => Get.to(seen == 1 ? OTPScreen() : OnBoardingPage()));
-  }*/
+    Timer(Duration(seconds: 1), () => Get.to( OnBoardingPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +34,15 @@ class _SplasScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.asset(
+          Image.asset(
                 "assets/images/logo.png",
                 height: Constants.screenHeight * 0.3,
                 width: Constants.screenWidth * 0.7,
               ),
+
               Lottie.asset(
-                "assets/images/pharmacy.json",
-                height: Constants.screenHeight * 0.2,
-              ),
-              Lottie.asset(
-                "assets/images/loading.json",
-                height: Constants.screenWidth * 0.2,
+                "assets/images/lf30_editor_9bclacla.json",
+                height: Constants.screenWidth * 0.1,
               )
             ],
           ),
