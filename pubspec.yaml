@@ -46,6 +46,8 @@ dev_dependencies:
   lottie: ^1.2.2
   get: ^4.6.1
   get_storage: ^2.0.3
+  ndialog: ^4.1.1
+  fluttertoast: ^8.0.9
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

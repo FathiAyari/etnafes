@@ -10,6 +10,6 @@ class OnBoardingController extends GetxController {
   logOut() {
     GetStorage().remove("user");
     GetStorage().remove("auth");
-    Get.toNamed("/login");
+    Get.toNamed("/sign_in");
   }
 }

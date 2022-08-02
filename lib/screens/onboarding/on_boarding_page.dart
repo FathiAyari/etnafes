@@ -27,13 +27,13 @@ List<Content> contentList = [
   ),
   Content(
     img: 'assets/images/bg2.jpg',
-    description: 'Decouvrrir les pharmacies les plus proches de vous',
-    title: 'Bienvenue sur Etnafes',
+    description: "Votre comfort est notre priorité, Profitez de vos vacances et t'inquiètez pas .",
+    title: 'Profitez de vos vacances',
   ),
   Content(
     img: 'assets/images/bg3.jpg',
-    description: 'Passer vos commandes en toute sécurité',
-    title: 'Bienvenue sur Etnafes',
+    description: 'Avec nous, vous avez le monde entre vos mains en un clic de réservation',
+    title: "Reservez votre hotel en moins d'une munite",
   )
 ];
 OnBoardingController onBoardingController = OnBoardingController();

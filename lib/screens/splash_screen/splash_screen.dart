@@ -22,7 +22,7 @@ class _SplasScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
 
-    Timer(Duration(seconds: 1), () => Get.to( OnBoardingPage()));
+    Timer(Duration(seconds: 4), () => Get.to( OnBoardingPage()));
   }
 
   @override
