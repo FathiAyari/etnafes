@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-
+import '../authentication/sign_in/SignIn.dart';
 import 'on_boarding_content.dart';
 import 'on_boarding_controller.dart';
 
@@ -21,9 +21,9 @@ int currentPage = 0;
 List<Content> contentList = [
   Content(
     img: 'assets/images/bg1.jpg',
-    description: 'Avec Etnafes nous sommes votre partenaire pour vous aider à trouver les meilleur Hotels, Restos, Maison d\'hotes ',
+    description:
+        'Avec Etnafes nous sommes votre partenaire pour vous aider à trouver les meilleur Hotels, Restos, Maison d\'hotes ',
     title: 'Bienvenue sur Etnafes',
-
   ),
   Content(
     img: 'assets/images/bg2.jpg',
@@ -59,8 +59,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   return contentList[index];
                 }),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal:  Constants.screenWidth * 0.1),
-
+              padding: EdgeInsets.symmetric(horizontal: Constants.screenWidth * 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,23 +82,30 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: double.infinity,
-                      height: Constants.screenHeight*
-                      0.07,
+                      height: Constants.screenHeight * 0.07,
                       child: ElevatedButton(
                           onPressed: (currentPage == contentList.length - 1)
                               ? () {
-                            onBoardingController.check();
-
-                          }
+                                  onBoardingController.check();
+                                  Get.to(SignIn());
+                                }
                               : () {
-                            onBoardingController.check();
-                            _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeInOutQuint);
-                          },
+                                  onBoardingController.check();
+                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeInOutQuint);
+                                },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                             primary: ConstColors.blueCustomColor,
                           ),
-                          child: (currentPage == contentList.length - 1) ? Text("Commencer",style: TextStyle(fontFamily: "NunitoBold"),) : Text("Suivant",style: TextStyle(fontFamily: "NunitoBold"),)),
+                          child: (currentPage == contentList.length - 1)
+                              ? Text(
+                                  "Commencer",
+                                  style: TextStyle(fontFamily: "NunitoBold"),
+                                )
+                              : Text(
+                                  "Suivant",
+                                  style: TextStyle(fontFamily: "NunitoBold"),
+                                )),
                     ),
                   ),
                 ],

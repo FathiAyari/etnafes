@@ -1,32 +1,25 @@
 import 'dart:io';
 
-
-
+import 'package:etnafes/util/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:ndialog/ndialog.dart';
 
-
 import '../../../util/constants/constraints.dart';
-
-
 import '../../onboarding/on_boarding_controller.dart';
 import '../../widgets/action_button.dart';
 import '../../widgets/alert_widgets.dart';
 import '../../widgets/input_field.dart';
 import '../../widgets/password_field.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<SignIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -63,119 +56,102 @@ class _LoginState extends State<Login> {
       onWillPop: avoidReturnButton,
       child: SafeArea(
           child: Scaffold(
+        backgroundColor: ConstColors.bgColor,
         resizeToAvoidBottomInset: false,
         body: Container(
-          width: double.infinity,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Container(
-                alignment: Alignment.topCenter,
-                color: Color(0xffa0c4f6),
-                child: Padding(
-                  padding: EdgeInsets.only(top: Constants.screenHeight * 0.08),
-                  child: Text(
-                    "S'authentifier",
-                    style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(30), topLeft: Radius.circular(30))),
-                margin: EdgeInsets.only(top: Constants.screenHeight * 0.15),
-                child: Form(
-                  key: _formKey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: Constants.screenHeight * 0.09,
-                          ),
-                          inputField("Email", TextInputType.emailAddress, emailController),
-                          PasswordField(label: "Mot de passe", passwordController: passwordController),
-                          Container(
-                              alignment: Alignment.topRight,
-                              width: double.infinity,
-                              child: Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: Constants.screenHeight * 0.02,
-                                      top: Constants.screenHeight * 0.02,
-                                      right: Constants.screenWidth * 0.04),
-                                  child: TextButton(
-                                      onPressed: () {
-                                      //  Get.to(ForgotPassword());
-                                      },
-                                      child: Text(
-                                        "Mot de passe oubliée ?",
-                                        style: TextStyle(
-                                          decoration: TextDecoration.underline,
-                                        ),
-                                      )))),
-                          loading
-                              ? Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CircularProgressIndicator(),
-                                )
-                              : buildActionButton("S'authentifier", () {
-                                  if (_formKey.currentState!.validate()) {
-                                  /*  setState(() {
-                                      loading = true;
-                                    });
-                                    AuthServices().signIn(emailController.text, passwordController.text).then((value) async {
-                                      if (value) {
-                                        final FirebaseAuth auth = await FirebaseAuth.instance;
-                                        final User? user = await auth.currentUser;
-                                        final uid = user!.uid;
-                                        var UserData = await FirebaseFirestore.instance.collection('users').doc(uid).get();
-                                        Cusers currentUser = Cusers.fromJson(UserData.data() as Map<String, dynamic>);
-                                        controller.saveUser(currentUser);
-                                        Get.toNamed("/home");
-                                      } else {
-                                        setState(() {
-                                          loading = false;
-                                        });
-                                        Fluttertoast.showToast(
-                                            msg: "Les données ne sont pas correctes",
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.BOTTOM,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.grey,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                      }
-                                    });*/
-                                  }
-                                }),
-                          SizedBox(
-                            height: Constants.screenHeight * 0.03,
-                          ),
-                          Container(
-                              margin: EdgeInsets.symmetric(horizontal: 30),
-                              child: Row(
-                                children: [
-                                  Expanded(
+            width: double.infinity,
+            child: Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  child: Container(
+                    height: Constants.screenHeight * 0.95,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              inputField("Email", TextInputType.emailAddress, emailController),
+                              PasswordField(label: "Mot de passe", passwordController: passwordController),
+                              Container(
+                                  alignment: Alignment.topRight,
+                                  width: double.infinity,
+                                  child: Padding(
+                                      padding: EdgeInsets.only(
+                                          bottom: Constants.screenHeight * 0.02,
+                                          top: Constants.screenHeight * 0.02,
+                                          right: Constants.screenWidth * 0.04),
                                       child: TextButton(
-                                    child: Text("Besoin d'un nouveau compte?",
-                                        style: TextStyle(color: Color(0xffa0c4f6), fontSize: 14, fontStyle: FontStyle.italic)),
-                                    onPressed: () {
-                                      Get.toNamed("/register");
-                                    },
-                                  ))
-                                ],
-                              )),
-                        ],
-                      ),
+                                          onPressed: () {
+                                            //  Get.to(ForgotPassword());
+                                          },
+                                          child: Text(
+                                            "Mot de passe oubliée ?",
+                                            style: TextStyle(
+                                              decoration: TextDecoration.underline,
+                                            ),
+                                          )))),
+                              loading
+                                  ? Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  : buildActionButton("S'authentifier", () {
+                                      if (_formKey.currentState!.validate()) {
+                                        /*  setState(() {
+                                        loading = true;
+                                      });
+                                      AuthServices().signIn(emailController.text, passwordController.text).then((value) async {
+                                        if (value) {
+                                          final FirebaseAuth auth = await FirebaseAuth.instance;
+                                          final User? user = await auth.currentUser;
+                                          final uid = user!.uid;
+                                          var UserData = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+                                          Cusers currentUser = Cusers.fromJson(UserData.data() as Map<String, dynamic>);
+                                          controller.saveUser(currentUser);
+                                          Get.toNamed("/home");
+                                        } else {
+                                          setState(() {
+                                            loading = false;
+                                          });
+                                          Fluttertoast.showToast(
+                                              msg: "Les données ne sont pas correctes",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 1,
+                                              backgroundColor: Colors.grey,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0);
+                                        }
+                                      });*/
+                                      }
+                                    }),
+                            ],
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.symmetric(horizontal: 30),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    child: TextButton(
+                                  child: Text("Besoin d'un nouveau compte?",
+                                      style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        color: ConstColors.blueCustomColor,
+                                        fontSize: 14,
+                                      )),
+                                  onPressed: () {},
+                                ))
+                              ],
+                            )),
+                      ],
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
-        ),
+              ),
+            )),
       )),
     );
   }

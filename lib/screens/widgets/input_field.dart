@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../util/constants/constraints.dart';
 
-
-
 Widget inputField(String label, TextInputType textInputType, TextEditingController controller) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 5),
@@ -15,7 +13,11 @@ Widget inputField(String label, TextInputType textInputType, TextEditingControll
           padding: EdgeInsets.symmetric(vertical: 5),
           child: Text(
             "$label",
-            style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xffa39f9f), fontSize: Constants.screenHeight * 0.018),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: "AssistantLight",
+                color: Color(0xffa39f9f),
+                fontSize: Constants.screenHeight * 0.018),
           ),
         ),
         TextFormField(
@@ -31,7 +33,24 @@ Widget inputField(String label, TextInputType textInputType, TextEditingControll
             }
           },
           keyboardType: textInputType,
-          decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
+          decoration: InputDecoration(
+            hintText: label,
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 2.0,
+              ),
+            ),
+          ),
         ),
       ],
     ),

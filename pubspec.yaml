@@ -27,17 +27,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  animated_text_kit: ^4.2.2
   flutter:
     sdk: flutter
 
-flutter_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/images/logo.png"
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:
@@ -47,8 +44,10 @@ dev_dependencies:
   get: ^4.6.1
   get_storage: ^2.0.3
   ndialog: ^4.1.1
-  fluttertoast: ^8.0.9
+  firebase_auth: ^3.3.9
 
+  firebase_core: ^1.13.1
+  cloud_firestore: ^3.1.10
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -81,7 +80,6 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
-  # example:
   fonts:
     - family: Nunito
       fonts:
