@@ -18,45 +18,50 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            child: Text(
-              "${widget.label}",
-              style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xffa39f9f), fontSize: Constants.screenHeight * 0.018),
+      padding: EdgeInsets.symmetric(vertical: Constants.screenHeight * 0.01, horizontal: Constants.screenWidth * 0.01),
+      child:        TextFormField(
+        validator: (value) {
+          if (value!.isEmpty) {
+            return " this field is required";
+          }
+        },
+
+        controller: widget.passwordController,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+            hintText: widget.label,
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder:  OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+              ),
             ),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value!.isEmpty) {
-                return " this field is required";
-              }
-            },
-            controller: widget.passwordController,
-            obscureText: obscureText,
-            decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: obscureText
-                      ? Icon(
-                          Icons.remove_red_eye,
-                          color: Color(0xffa0c4f6),
-                        )
-                      : Icon(
-                          Icons.visibility_off,
-                          color: Colors.black12,
-                        ),
-                  onPressed: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
-                ),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
-          ),
-        ],
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 2.0,
+              ),
+            ),
+            suffixIcon: IconButton(
+              icon: obscureText
+                  ? Icon(
+                Icons.remove_red_eye,
+                color: Color(0xffa0c4f6),
+              )
+                  : Icon(
+                Icons.visibility_off,
+                color: Colors.black12,
+              ),
+              onPressed: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
       ),
     );
   }

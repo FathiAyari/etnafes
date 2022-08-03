@@ -72,6 +72,7 @@ class _LoginState extends State<SignIn> {
                         Expanded(
                           child: Column(
                             children: [
+                              Image.asset("assets/images/logo.png", height: Constants.screenHeight * 0.2),
                               inputField("Email", TextInputType.emailAddress, emailController),
                               PasswordField(label: "Mot de passe", passwordController: passwordController),
                               Container(
